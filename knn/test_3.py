@@ -74,14 +74,3 @@ plot_learning_curve(plt, knn, 'Learn Curve for KNN Diabetes', X, Y, ylim=(0.1, 1
 plt.show()
 # 从上图可以看出，训练样本评分较低，切测试样本与训练样本差距较大，这是典型的欠拟合现象。
 # k-均值算法没有更好的措施来解决欠拟合问题
-
-
-
-
-
-
-
-
-
-
-
