@@ -11,3 +11,5 @@
 
 * test3，糖尿病预测
 > ![image](https://github.com/leonzm/py2x_machine_learning/blob/master/image/knn/k-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95_4.png)
+
+> ![image](https://github.com/leonzm/py2x_machine_learning/blob/master/image/knn/k-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95_5.png)

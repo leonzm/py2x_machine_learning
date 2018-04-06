@@ -10,6 +10,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.model_selection import KFold
 from sklearn.model_selection import ShuffleSplit
+from sklearn.feature_selection import SelectKBest
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier, RadiusNeighborsClassifier
@@ -74,3 +75,21 @@ plot_learning_curve(plt, knn, 'Learn Curve for KNN Diabetes', X, Y, ylim=(0.1, 1
 plt.show()
 # 从上图可以看出，训练样本评分较低，切测试样本与训练样本差距较大，这是典型的欠拟合现象。
 # k-均值算法没有更好的措施来解决欠拟合问题
+
+print '\n'
+# 4. 特征选择及数据可视化
+selector = SelectKBest(k=2)
+X_new = selector.fit_transform(X, Y)  # 只选择 2 个与输出值相关性最大的特征
+print X.shape
+print X_new.shape
+print Y.shape
+print X_new[0:5]  # 发现选择了 Glucose（血糖浓度）和 BMI（身体质量指数）
+# 画出数据
+plt.figure(figsize=(10, 6), dpi=200)
+plt.ylabel('BMI')
+plt.xlabel('Glucose')
+# 画出 Y== 0 的阴性样本，用圆圈表示
+plt.scatter(X_new[Y==0][:, 0], X_new[Y==0][:, 1], c='r', s=20, marker='o')
+# 画出 Y== 1 的阳性样本，用三角形表示
+plt.scatter(X_new[Y==1][:, 0], X_new[Y==1][:, 1], c='g', s=20, marker='^')
+plt.show()
